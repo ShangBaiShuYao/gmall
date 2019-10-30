@@ -20,6 +20,12 @@
     </properties>
 
     <dependencies>
+        <!--添加nacos的依赖-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <version>0.2.2.RELEASE</version>
+        </dependency>
         <!--导入核心包的依赖-->
         <dependency>
             <groupId>com.atguigu</groupId>
@@ -69,12 +75,13 @@
         </dependency>
     </dependencies>
 
+    <!-- SpringCloud的依赖 -->
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
+                <version>Greenwich.SR2</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -99,3 +106,4 @@
     </repositories>
 
 </project>
+
