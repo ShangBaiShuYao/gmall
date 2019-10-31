@@ -16,16 +16,29 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <mysql.version>5.1.46</mysql.version>
         <spring-cloud.version>Hoxton.RC1</spring-cloud.version>
     </properties>
 
     <dependencies>
         <!--添加nacos的依赖-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
+        <!-- https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-starter-alibaba-nacos-discovery -->
+        <!--dependency>
+            <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-            <version>0.2.2.RELEASE</version>
-        </dependency>
+            <version>2.1.0.RELEASE</version>
+        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-alibaba-nacos-discovery -->
+        <!-- https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-starter-alibaba-nacos-discovery -->
+        <!--<dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>-->
+
+
+
+
+
         <!--导入核心包的依赖-->
         <dependency>
             <groupId>com.atguigu</groupId>
@@ -75,13 +88,12 @@
         </dependency>
     </dependencies>
 
-    <!-- SpringCloud的依赖 -->
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Greenwich.SR2</version>
+                <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
