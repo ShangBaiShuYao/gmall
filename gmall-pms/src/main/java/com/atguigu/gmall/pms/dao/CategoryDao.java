@@ -16,7 +16,6 @@ import java.util.List;
  * @date 2019-10-30 18:50:47
  */
 @Mapper
-@Repository
 public interface CategoryDao extends BaseMapper<CategoryEntity> {
 
     List<CategoryEntity> selectList(QueryWrapper<Object> wrapper);

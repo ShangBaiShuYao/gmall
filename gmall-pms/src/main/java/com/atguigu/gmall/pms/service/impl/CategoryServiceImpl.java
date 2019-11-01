@@ -20,7 +20,11 @@ import com.atguigu.gmall.pms.service.CategoryService;
 public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity> implements CategoryService {
 
     @Autowired
-    CategoryDao categoryDao;
+    private CategoryDao categoryDao;
+
+  /*  @Autowired
+   CategoryDao categoryDao;*/
+
 
     @Override
     public PageVo queryPage(QueryCondition params) {
@@ -37,7 +41,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
     public List<CategoryEntity> queryCategory(Integer level, Long parentCid)
     {
         //构造条件查询
-        QueryWrapper<Object> wrapper = new QueryWrapper<>();
+        QueryWrapper<CategoryEntity> wrapper = new QueryWrapper<>();
         //如果level级别是0,说明查询所有的级别
         if (level != 0)
         {
@@ -51,7 +55,4 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
 
          return this.categoryDao.selectList(wrapper);
     }
-
-
-
 }

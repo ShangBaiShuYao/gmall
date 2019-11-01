@@ -21,6 +21,5 @@ public interface CategoryService extends IService<CategoryEntity> {
 
     List<CategoryEntity> queryCategory(Integer level, Long parentCid);
 
-    /*List<CategoryEntity> queryCategory(Integer level, Long parentCid);*/
 }
 
