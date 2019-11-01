@@ -13,36 +13,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import com.atguigu.gmall.pms.entity.SpuInfoEntity;
-import com.atguigu.gmall.pms.service.SpuInfoService;
+import com.atguigu.gmall.pms.entity.SkuSaleAttrValueEntity;
+import com.atguigu.gmall.pms.service.SkuSaleAttrValueService;
 
 
 
 
 /**
- * spu信息
+ * sku销售属性&值
  *
  * @author lixianfeng
  * @email lxf@atguigu.com
- * @date 2019-10-30 18:50:47
+ * @date 2019-11-01 20:49:25
  */
-@Api(tags = "spu信息 管理")
+@Api(tags = "sku销售属性&值 管理")
 @RestController
-@RequestMapping("pms/spuinfo")
-public class SpuInfoController {
+@RequestMapping("pms/skusaleattrvalue")
+public class SkuSaleAttrValueController {
     @Autowired
-    private SpuInfoService spuInfoService;
-
-
+    private SkuSaleAttrValueService skuSaleAttrValueService;
 
     /**
      * 列表
      */
     @ApiOperation("分页查询(排序)")
     @GetMapping("/list")
-    @PreAuthorize("hasAuthority('pms:spuinfo:list')")
+    @PreAuthorize("hasAuthority('pms:skusaleattrvalue:list')")
     public Resp<PageVo> list(QueryCondition queryCondition) {
-        PageVo page = spuInfoService.queryPage(queryCondition);
+        PageVo page = skuSaleAttrValueService.queryPage(queryCondition);
 
         return Resp.ok(page);
     }
@@ -53,11 +51,11 @@ public class SpuInfoController {
      */
     @ApiOperation("详情查询")
     @GetMapping("/info/{id}")
-    @PreAuthorize("hasAuthority('pms:spuinfo:info')")
-    public Resp<SpuInfoEntity> info(@PathVariable("id") Long id){
-		SpuInfoEntity spuInfo = spuInfoService.getById(id);
+    @PreAuthorize("hasAuthority('pms:skusaleattrvalue:info')")
+    public Resp<SkuSaleAttrValueEntity> info(@PathVariable("id") Long id){
+		SkuSaleAttrValueEntity skuSaleAttrValue = skuSaleAttrValueService.getById(id);
 
-        return Resp.ok(spuInfo);
+        return Resp.ok(skuSaleAttrValue);
     }
 
     /**
@@ -65,9 +63,9 @@ public class SpuInfoController {
      */
     @ApiOperation("保存")
     @PostMapping("/save")
-    @PreAuthorize("hasAuthority('pms:spuinfo:save')")
-    public Resp<Object> save(@RequestBody SpuInfoEntity spuInfo){
-		spuInfoService.save(spuInfo);
+    @PreAuthorize("hasAuthority('pms:skusaleattrvalue:save')")
+    public Resp<Object> save(@RequestBody SkuSaleAttrValueEntity skuSaleAttrValue){
+		skuSaleAttrValueService.save(skuSaleAttrValue);
 
         return Resp.ok(null);
     }
@@ -77,9 +75,9 @@ public class SpuInfoController {
      */
     @ApiOperation("修改")
     @PostMapping("/update")
-    @PreAuthorize("hasAuthority('pms:spuinfo:update')")
-    public Resp<Object> update(@RequestBody SpuInfoEntity spuInfo){
-		spuInfoService.updateById(spuInfo);
+    @PreAuthorize("hasAuthority('pms:skusaleattrvalue:update')")
+    public Resp<Object> update(@RequestBody SkuSaleAttrValueEntity skuSaleAttrValue){
+		skuSaleAttrValueService.updateById(skuSaleAttrValue);
 
         return Resp.ok(null);
     }
@@ -89,9 +87,9 @@ public class SpuInfoController {
      */
     @ApiOperation("删除")
     @PostMapping("/delete")
-    @PreAuthorize("hasAuthority('pms:spuinfo:delete')")
+    @PreAuthorize("hasAuthority('pms:skusaleattrvalue:delete')")
     public Resp<Object> delete(@RequestBody Long[] ids){
-		spuInfoService.removeByIds(Arrays.asList(ids));
+		skuSaleAttrValueService.removeByIds(Arrays.asList(ids));
 
         return Resp.ok(null);
     }

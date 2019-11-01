@@ -19,6 +19,9 @@ import com.atguigu.gmall.pms.service.CategoryService;
 @Service("categoryService")
 public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity> implements CategoryService {
 
+    /**
+     * 商品分类
+     */
     @Autowired
     private CategoryDao categoryDao;
 
@@ -37,6 +40,12 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
     }
 
 
+    /**
+     * 商品分类
+     * @param level
+     * @param parentCid
+     * @return
+     */
     @Override
     public List<CategoryEntity> queryCategory(Integer level, Long parentCid)
     {

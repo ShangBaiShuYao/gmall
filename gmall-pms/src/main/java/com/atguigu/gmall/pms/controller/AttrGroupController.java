@@ -1,7 +1,6 @@
 package com.atguigu.gmall.pms.controller;
 
 import java.util.Arrays;
-import java.util.Map;
 
 
 import com.atguigu.core.bean.PageVo;
@@ -22,8 +21,8 @@ import com.atguigu.gmall.pms.service.AttrGroupService;
 /**
  * 属性分组
  *
- * @author lixianfeng
- * @email lxf@atguigu.com
+ * @author 上白书妖
+ * @email shangbaishuyao@163.com
  * @date 2019-10-30 18:50:47
  */
 @Api(tags = "属性分组 管理")
@@ -32,6 +31,22 @@ import com.atguigu.gmall.pms.service.AttrGroupService;
 public class AttrGroupController {
     @Autowired
     private AttrGroupService attrGroupService;
+
+
+    /**
+     * 查询规格分组
+     * @param cid
+     * @param condition
+     * @return
+     */
+    @ApiOperation("根据三级分类id分页查询")
+    @GetMapping("{cid}")
+    public Resp<PageVo> queryByCidPage(@PathVariable("cid")Long cid, QueryCondition condition){
+
+        PageVo pageVo = this.attrGroupService.queryByCidPage(cid, condition);
+        return Resp.ok(pageVo);
+    }
+
 
     /**
      * 列表

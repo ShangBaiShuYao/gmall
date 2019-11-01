@@ -13,36 +13,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import com.atguigu.gmall.pms.entity.SpuInfoEntity;
-import com.atguigu.gmall.pms.service.SpuInfoService;
+import com.atguigu.gmall.pms.entity.SpuCommentEntity;
+import com.atguigu.gmall.pms.service.SpuCommentService;
 
 
 
 
 /**
- * spu信息
+ * 商品评价
  *
  * @author lixianfeng
  * @email lxf@atguigu.com
- * @date 2019-10-30 18:50:47
+ * @date 2019-11-01 20:49:24
  */
-@Api(tags = "spu信息 管理")
+@Api(tags = "商品评价 管理")
 @RestController
-@RequestMapping("pms/spuinfo")
-public class SpuInfoController {
+@RequestMapping("pms/spucomment")
+public class SpuCommentController {
     @Autowired
-    private SpuInfoService spuInfoService;
-
-
+    private SpuCommentService spuCommentService;
 
     /**
      * 列表
      */
     @ApiOperation("分页查询(排序)")
     @GetMapping("/list")
-    @PreAuthorize("hasAuthority('pms:spuinfo:list')")
+    @PreAuthorize("hasAuthority('pms:spucomment:list')")
     public Resp<PageVo> list(QueryCondition queryCondition) {
-        PageVo page = spuInfoService.queryPage(queryCondition);
+        PageVo page = spuCommentService.queryPage(queryCondition);
 
         return Resp.ok(page);
     }
@@ -53,11 +51,11 @@ public class SpuInfoController {
      */
     @ApiOperation("详情查询")
     @GetMapping("/info/{id}")
-    @PreAuthorize("hasAuthority('pms:spuinfo:info')")
-    public Resp<SpuInfoEntity> info(@PathVariable("id") Long id){
-		SpuInfoEntity spuInfo = spuInfoService.getById(id);
+    @PreAuthorize("hasAuthority('pms:spucomment:info')")
+    public Resp<SpuCommentEntity> info(@PathVariable("id") Long id){
+		SpuCommentEntity spuComment = spuCommentService.getById(id);
 
-        return Resp.ok(spuInfo);
+        return Resp.ok(spuComment);
     }
 
     /**
@@ -65,9 +63,9 @@ public class SpuInfoController {
      */
     @ApiOperation("保存")
     @PostMapping("/save")
-    @PreAuthorize("hasAuthority('pms:spuinfo:save')")
-    public Resp<Object> save(@RequestBody SpuInfoEntity spuInfo){
-		spuInfoService.save(spuInfo);
+    @PreAuthorize("hasAuthority('pms:spucomment:save')")
+    public Resp<Object> save(@RequestBody SpuCommentEntity spuComment){
+		spuCommentService.save(spuComment);
 
         return Resp.ok(null);
     }
@@ -77,9 +75,9 @@ public class SpuInfoController {
      */
     @ApiOperation("修改")
     @PostMapping("/update")
-    @PreAuthorize("hasAuthority('pms:spuinfo:update')")
-    public Resp<Object> update(@RequestBody SpuInfoEntity spuInfo){
-		spuInfoService.updateById(spuInfo);
+    @PreAuthorize("hasAuthority('pms:spucomment:update')")
+    public Resp<Object> update(@RequestBody SpuCommentEntity spuComment){
+		spuCommentService.updateById(spuComment);
 
         return Resp.ok(null);
     }
@@ -89,9 +87,9 @@ public class SpuInfoController {
      */
     @ApiOperation("删除")
     @PostMapping("/delete")
-    @PreAuthorize("hasAuthority('pms:spuinfo:delete')")
+    @PreAuthorize("hasAuthority('pms:spucomment:delete')")
     public Resp<Object> delete(@RequestBody Long[] ids){
-		spuInfoService.removeByIds(Arrays.asList(ids));
+		spuCommentService.removeByIds(Arrays.asList(ids));
 
         return Resp.ok(null);
     }

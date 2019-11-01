@@ -27,4 +27,28 @@ public class AttrGroupServiceImpl extends ServiceImpl<AttrGroupDao, AttrGroupEnt
         return new PageVo(page);
     }
 
+
+
+
+
+    /**
+     * 查询规格分组
+     *
+     * 请求参数：一些基本分页条件已经封装到QueryCondition，然后有一个占位符参数（商品分类：225）
+     * @param cid
+     * @param condition
+     * @作者 上白书妖
+     * @return
+     */
+    @Override
+    public PageVo queryByCidPage(Long cid, QueryCondition condition)
+    {
+
+        IPage<AttrGroupEntity> page = this.page(
+                new Query<AttrGroupEntity>().getPage(condition),
+                new QueryWrapper<AttrGroupEntity>().eq("catelog_id", cid)
+        );
+        return new PageVo(page);
+    }
+
 }

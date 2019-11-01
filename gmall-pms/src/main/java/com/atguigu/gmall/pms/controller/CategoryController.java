@@ -34,6 +34,12 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
+    /**
+     * 商品分类
+     * @param level
+     * @param parentCid
+     * @return
+     */
     @ApiOperation("根据分类等级或者父id查询分类")
     @GetMapping
     public Resp<List<CategoryEntity>> queryCategory(@RequestParam(value="level", defaultValue = "0")
