@@ -6,6 +6,7 @@ import java.util.Arrays;
 import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.QueryCondition;
 import com.atguigu.core.bean.Resp;
+import com.atguigu.gmall.pms.vo.AttrGroupVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,23 @@ import com.atguigu.gmall.pms.service.AttrGroupService;
 public class AttrGroupController {
     @Autowired
     private AttrGroupService attrGroupService;
+
+
+
+    /**
+     *  @作者  上白书妖
+     *  @Date  2019/11/3 13:43
+     *  @Email shangbaishuyao@163.com
+     *  @Description  查询分组下的规格参数
+     */
+    @ApiOperation("根据分组id查询分组及组下的规格参数")
+    @GetMapping("withattr/{gid}")
+    public Resp<AttrGroupVO> queryById(@PathVariable("gid")Long gid){
+
+        AttrGroupVO attrGroupVO = this.attrGroupService.queryById(gid);
+        return Resp.ok(attrGroupVO);
+    }
+
 
 
     /**

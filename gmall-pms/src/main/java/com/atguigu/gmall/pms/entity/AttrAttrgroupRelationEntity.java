@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
+import lombok.Getter;
 
 /**
  * 属性&属性分组关联
@@ -43,4 +44,20 @@ public class AttrAttrgroupRelationEntity implements Serializable {
 	@ApiModelProperty(name = "attrSort",value = "属性组内排序")
 	private Integer attrSort;
 
+	public Long getAttrId() {
+		return attrId;
+	}
+
+	public void setAttrId(Long attrId) {
+		this.attrId = attrId;
+	}
+
+
+	public Long getAttrGroupId() {
+		return attrGroupId;
+	}
+
+	public void setAttrGroupId(Long attrGroupId) {
+		this.attrGroupId = attrGroupId;
+	}
 }
