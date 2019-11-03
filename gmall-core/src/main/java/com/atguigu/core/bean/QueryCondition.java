@@ -24,4 +24,20 @@ public class QueryCondition {
 
     @ApiModelProperty(name = "asc",value = "系统默认排序",required = false)
     private String asc = "asc";
+    
+    
+    /*
+     * @Description  spu商品信息查询
+     * @Date   2019/11/3 14:32
+     */
+    private String key;
+
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
 }

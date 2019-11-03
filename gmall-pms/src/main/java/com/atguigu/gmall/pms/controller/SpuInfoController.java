@@ -34,6 +34,18 @@ public class SpuInfoController {
     private SpuInfoService spuInfoService;
 
 
+    /*
+     * @Description 查询商品列表
+     * @Date   2019/11/3 14:25
+     */
+    @ApiOperation("spu商品信息查询")
+    @GetMapping
+    public Resp<PageVo> querySpuInfo(QueryCondition condition, @RequestParam("catId")Long catId){
+
+        PageVo page = this.spuInfoService.querySpuInfo(condition, catId);
+        return Resp.ok(page);
+    }
+
 
     /**
      * 列表

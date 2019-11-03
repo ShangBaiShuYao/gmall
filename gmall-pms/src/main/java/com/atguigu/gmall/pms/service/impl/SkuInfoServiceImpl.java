@@ -17,6 +17,7 @@ import com.atguigu.gmall.pms.service.SkuInfoService;
 @Service("skuInfoService")
 public class SkuInfoServiceImpl extends ServiceImpl<SkuInfoDao, SkuInfoEntity> implements SkuInfoService {
 
+
     @Override
     public PageVo queryPage(QueryCondition params) {
         IPage<SkuInfoEntity> page = this.page(
