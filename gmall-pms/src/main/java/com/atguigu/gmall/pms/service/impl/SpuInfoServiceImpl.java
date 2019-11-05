@@ -33,6 +33,10 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
 
 
 
+    /*
+     * @Description 完成SPU新增功能
+     * @Date   2019/11/5 20:32
+     */
     @Autowired
     private SpuInfoDescDao descDao;
 
