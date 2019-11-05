@@ -1,9 +1,7 @@
 package com.atguigu.gmall.pms.service.impl;
 
 import com.alibaba.nacos.client.utils.StringUtils;
-import com.atguigu.gmall.pms.dao.ProductAttrValueDao;
-import com.atguigu.gmall.pms.dao.SkuInfoDao;
-import com.atguigu.gmall.pms.dao.SpuInfoDescDao;
+import com.atguigu.gmall.pms.dao.*;
 import com.atguigu.gmall.pms.entity.*;
 import com.atguigu.gmall.pms.vo.ProductAttrValueVO;
 import com.atguigu.gmall.pms.vo.SkuInfoVO;
@@ -18,7 +16,6 @@ import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.Query;
 import com.atguigu.core.bean.QueryCondition;
 
-import com.atguigu.gmall.pms.dao.SpuInfoDao;
 import com.atguigu.gmall.pms.service.SpuInfoService;
 import org.springframework.util.CollectionUtils;
 
@@ -44,8 +41,20 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
     private ProductAttrValueDao productAttrValueDao;
 
 
+
+    /*
+     * @Description SMS提供营销保存接口
+     * @Date   2019/11/5 20:39
+     */
+
     @Autowired
     private SkuInfoDao skuInfoDao;
+
+    @Autowired
+    private SkuImagesDao skuImagesDao;
+
+    @Autowired
+    private  SkuSaleAttrValueDao skuSaleAttrValueDao;
 
 
 //    @Autowired
@@ -149,7 +158,6 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
              */
 
             // 2.2. 新增sku的图片
-/*
             if (!CollectionUtils.isEmpty(images)) {
                 images.forEach(image -> {
                     SkuImagesEntity skuImagesEntity = new SkuImagesEntity();
@@ -161,11 +169,9 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
                 });
             }
 
-            */
-/*
-             * @Description 新增销售属性
+             /** @Description 新增销售属性
              * @Date   2019/11/4 23:15
-             *//*
+             */
 
             List<SkuSaleAttrValueEntity> saleAttrs = skuInfoVO.getSaleAttrs();
             if (!CollectionUtils.isEmpty(saleAttrs)) {
@@ -178,19 +184,18 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
 
 
             // 3.新增营销相关的3张表 skuId
-            BeanUtils.copyProperties(skuInfoVO, saleVO);
+           /* BeanUtils.copyProperties(skuInfoVO, saleVO);
             saleVO.setSkuId(skuId);
             this.gmallSmsClient.saveSale(saleVO);
 */
-
 
         }
     }
 
 
             @Override
-    public PageVo queryPage(QueryCondition params) {
-        IPage<SpuInfoEntity> page = this.page(
+         public PageVo queryPage(QueryCondition params) {
+             IPage<SpuInfoEntity> page = this.page(
                 new Query<SpuInfoEntity>().getPage(params),
                 new QueryWrapper<SpuInfoEntity>()
         );
