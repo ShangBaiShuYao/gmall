@@ -5,6 +5,12 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 
+/**
+ *  @作者  上白书妖
+ *  @Date  2019/11/4 11:55
+ *  @Email shangbaishuyao@163.com
+ *  @Description  Request URL: http://127.0.0.1:8888/pms/spuinfo? t=1572839396320 & page=1 & limit=10 & key= & catId=0
+ */
 @ApiModel
 @Data
 public class QueryCondition {

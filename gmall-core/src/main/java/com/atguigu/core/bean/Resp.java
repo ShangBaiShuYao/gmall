@@ -37,6 +37,8 @@ public class Resp<T> {
         return resp;
     }
 
+
+
     public static<T> Resp<T> fail(T data){
         Resp<T> resp = new Resp<T>();
         resp.setCode(1);//操作失败
@@ -55,4 +57,31 @@ public class Resp<T> {
     }
 
 
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
 }
