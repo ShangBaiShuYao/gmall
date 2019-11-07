@@ -4,6 +4,8 @@ import com.atguigu.gmall.pms.entity.ProductAttrValueEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * spu属性值
  * 
@@ -13,5 +15,10 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface ProductAttrValueDao extends BaseMapper<ProductAttrValueEntity> {
-	
+
+    /*
+     * @Description 根据spuId查询检索属性及值
+     * @Date   2019/11/7 16:54
+     */
+    List<ProductAttrValueEntity> querySearchAttrValue(Long spuId);
 }

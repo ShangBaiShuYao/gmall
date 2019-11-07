@@ -11,13 +11,14 @@ import com.atguigu.gmall.sms.entity.SkuBoundsEntity;
 import com.atguigu.gmall.sms.entity.SkuFullReductionEntity;
 import com.atguigu.gmall.sms.entity.SkuLadderEntity;
 import com.atguigu.gmall.sms.service.SkuBoundsService;
-import com.atguigu.gmall.vo.SaleVO;
+import com.atguigu.gmall.sms.vo.SaleVO;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import java.util.List;
@@ -40,6 +41,7 @@ public class SkuBoundsServiceImpl extends ServiceImpl<SkuBoundsDao, SkuBoundsEnt
     private SkuLadderDao skuLadderDao;
 
 
+
     @Override
     public PageVo queryPage(QueryCondition params) {
         IPage<SkuBoundsEntity> page = this.page(
@@ -51,9 +53,11 @@ public class SkuBoundsServiceImpl extends ServiceImpl<SkuBoundsDao, SkuBoundsEnt
     }
 
 
-    //@Transactional
+    @Transactional
     @Override
-    public void saveSale(SaleVO saleVO) {
+    public void saveSale(SaleVO saleVO)  {
+
+
         // 3.1. 新增积分：skuBounds
         SkuBoundsEntity skuBoundsEntity = new SkuBoundsEntity();
         skuBoundsEntity.setBuyBounds(saleVO.getBuyBounds());

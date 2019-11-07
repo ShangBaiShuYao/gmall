@@ -1,18 +1,22 @@
-package com.atguigu.gmall.pms.vo;
+package com.atguigu.gmall.sms.vo;
 
-import com.atguigu.gmall.pms.entity.SkuSaleAttrValueEntity;
 import lombok.Data;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.util.List;
 
 /**
  * @Auther: 上白书妖
- * @Date: 2019/11/6 01:26
+ * @Date: 2019/11/5 00:16
  * @Description:
  */
 @Data
-public class SkuInfoVO {
+public class SaleVO {
+
+    public Long skuId;
+
+
     // 购物积分相关字段
     private BigDecimal growBounds;
     /**
@@ -48,11 +52,5 @@ public class SkuInfoVO {
      * 是否参与其他优惠
      */
     private Integer fullAddOther;
-
-    // 销售属性
-    private List<SkuSaleAttrValueEntity> saleAttrs;
-
-    private List<String> images;
-
 
 }

@@ -1,6 +1,9 @@
 package com.atguigu.gmall.pms.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -16,6 +19,22 @@ import com.atguigu.gmall.pms.service.ProductAttrValueService;
 
 @Service("productAttrValueService")
 public class ProductAttrValueServiceImpl extends ServiceImpl<ProductAttrValueDao, ProductAttrValueEntity> implements ProductAttrValueService {
+
+    @Autowired
+    ProductAttrValueDao productAttrValueDao;
+
+    /*
+     * @Description   根据spuId查询检索属性及值
+     * @Date   2019/11/7 16:54
+     */
+    @Override
+    public List<ProductAttrValueEntity> querySearchAttrValue(Long spuId) {
+
+        List<ProductAttrValueEntity> productAttrValueEntities = this.productAttrValueDao.querySearchAttrValue(spuId);
+        return productAttrValueEntities;
+    }
+
+
 
     @Override
     public PageVo queryPage(QueryCondition params) {

@@ -1,10 +1,6 @@
 package com.atguigu.gmall.pms.vo;
 
-import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -14,12 +10,9 @@ import java.util.List;
  * @Description:
  */
 @Data
-@Getter
-@Setter
-@Builder
 public class SaleVO {
 
-    public long skuId;
+    public Long skuId;
 
     // 购物积分相关字段
     private BigDecimal growBounds;

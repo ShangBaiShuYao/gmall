@@ -3,9 +3,12 @@ package com.atguigu.gmall.pms.service.impl;
 import com.alibaba.nacos.client.utils.StringUtils;
 import com.atguigu.gmall.pms.dao.*;
 import com.atguigu.gmall.pms.entity.*;
+import com.atguigu.gmall.pms.feign.GmallSmsClient;
 import com.atguigu.gmall.pms.vo.ProductAttrValueVO;
+import com.atguigu.gmall.pms.vo.SaleVO;
 import com.atguigu.gmall.pms.vo.SkuInfoVO;
 import com.atguigu.gmall.pms.vo.SpuInfoVO;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,11 +32,13 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
 {
 
 
+/*
 
-    /*
      * @Description 完成SPU新增功能
      * @Date   2019/11/5 20:32
-     */
+
+*/
+
     @Autowired
     private SpuInfoDescDao descDao;
 
@@ -41,11 +46,11 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
     private ProductAttrValueDao productAttrValueDao;
 
 
-
-    /*
+/*
      * @Description SMS提供营销保存接口
      * @Date   2019/11/5 20:39
      */
+
 
     @Autowired
     private SkuInfoDao skuInfoDao;
@@ -57,14 +62,16 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
     private  SkuSaleAttrValueDao skuSaleAttrValueDao;
 
 
-//    @Autowired
-//    private GmallSmsClient gmallSmsClient;
+    @Autowired
+    private GmallSmsClient gmallSmsClient;
 
 
-    /*
+
+/*
      * @Description 查询商品列表
      * @Date   2019/11/3 14:27
      */
+
     @Override
     public PageVo querySpuInfo(QueryCondition condition, Long catId) {
         // 封装分页条件
@@ -85,22 +92,27 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
         return new PageVo(this.page(page, wrapper));
     }
 
-    /*
-     * @Description 完成SPU新增功能
+   /*  * @Description 完成SPU新增功能
      * @Date   2019/11/4 19:42
-     */
 
-    /**
+
+
+*
      * 九张表：
      * 1.spu相关：3
      * 2.sku相关：3
      * 3.营销相关：3
      * @param spuInfoVO
      */
-//    @GlobalTransactional
+
+     @GlobalTransactional
 //    @Transactional
     @Override
     public void bigSave(SpuInfoVO spuInfoVO) {
+
+         // 最后制造异常
+         int i = 1 / 0;
+
 
         // 1.新增spu相关的3张表
         // 1.1. 新增spuInfo
@@ -152,10 +164,10 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
 
 
 
-            /*
-             * @Description 新增部分 ,前面的代码没有问题
+           /*  * @Description 新增部分 ,前面的代码没有问题
              * @Date   2019/11/4 23:13
              */
+
 
             // 2.2. 新增sku的图片
             if (!CollectionUtils.isEmpty(images)) {
@@ -169,9 +181,10 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
                 });
             }
 
-             /** @Description 新增销售属性
+            /* * @Description 新增销售属性
              * @Date   2019/11/4 23:15
              */
+
 
             List<SkuSaleAttrValueEntity> saleAttrs = skuInfoVO.getSaleAttrs();
             if (!CollectionUtils.isEmpty(saleAttrs)) {
@@ -184,10 +197,10 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
 
 
             // 3.新增营销相关的3张表 skuId
-           /* BeanUtils.copyProperties(skuInfoVO, saleVO);
+            SaleVO saleVO = new SaleVO();
+            BeanUtils.copyProperties(skuInfoVO, saleVO);
             saleVO.setSkuId(skuId);
             this.gmallSmsClient.saveSale(saleVO);
-*/
 
         }
     }

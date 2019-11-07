@@ -4,6 +4,13 @@ import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+
+/**
+ *  @作者  上白书妖
+ *  @Date  2019/11/5 20:56
+ *  @Email shangbaishuyao@163.com
+ *  @Description  分页的拦截器
+ */
 //Spring boot方式
 @Configuration
 public class MybatisPlusConfig {

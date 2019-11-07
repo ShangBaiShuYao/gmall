@@ -12,6 +12,8 @@
     <modules>
         <module>gmall-core</module>
         <module>gmall-admin</module>
+        <module>elasticsearch-demo</module>
+        <module>elasticsearch-demo</module>
     </modules>
 
 </project>
