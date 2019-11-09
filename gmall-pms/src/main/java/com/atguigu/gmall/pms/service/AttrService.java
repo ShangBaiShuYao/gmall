@@ -2,7 +2,7 @@ package com.atguigu.gmall.pms.service;
 
 import com.atguigu.gmall.pms.vo.AttrVO;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.atguigu.gmall.pms.entity.AttrEntity;
+import com.atguigu.pmall.pms.entity.AttrEntity;
 import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.QueryCondition;
 

@@ -12,7 +12,7 @@ import com.atguigu.core.bean.Query;
 import com.atguigu.core.bean.QueryCondition;
 
 import com.atguigu.gmall.pms.dao.CategoryDao;
-import com.atguigu.gmall.pms.entity.CategoryEntity;
+import com.atguigu.pmall.pms.entity.CategoryEntity;
 import com.atguigu.gmall.pms.service.CategoryService;
 
 

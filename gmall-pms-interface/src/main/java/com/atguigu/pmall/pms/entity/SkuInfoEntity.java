@@ -1,4 +1,4 @@
-package com.atguigu.gmall.pms.entity;
+package com.atguigu.pmall.pms.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -6,7 +6,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 import java.io.Serializable;
-import java.util.Date;
+
 import lombok.Data;
 
 /**
@@ -20,6 +20,7 @@ import lombok.Data;
 @Data
 @TableName("pms_sku_info")
 public class SkuInfoEntity implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 
 	/**

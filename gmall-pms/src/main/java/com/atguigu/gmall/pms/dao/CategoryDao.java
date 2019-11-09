@@ -1,6 +1,6 @@
 package com.atguigu.gmall.pms.dao;
 
-import com.atguigu.gmall.pms.entity.CategoryEntity;
+import com.atguigu.pmall.pms.entity.CategoryEntity;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;

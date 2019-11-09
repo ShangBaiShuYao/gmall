@@ -1,13 +1,12 @@
-package com.atguigu.gmall.pms.entity;
+package com.atguigu.pmall.pms.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
-import java.util.Date;
+
 import lombok.Data;
-import lombok.Getter;
 
 /**
  * 属性&属性分组关联

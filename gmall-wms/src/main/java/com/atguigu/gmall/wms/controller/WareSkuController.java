@@ -2,7 +2,6 @@ package com.atguigu.gmall.wms.controller;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 
 import com.atguigu.core.bean.PageVo;
@@ -21,12 +20,12 @@ import com.atguigu.gmall.wms.service.WareSkuService;
 
 
 
-/**
- * 商品库存
- *
- * @author lixianfeng
- * @email lxf@atguigu.com
- * @date 2019-10-28 16:30:21
+
+/*
+ *  @作者  上白书妖
+ *  @Date  2019/11/8 22:49
+ *  @Email shangbaishuyao@163.com
+ *  @Description  商品库存
  */
 @Api(tags = "商品库存 管理")
 @RestController

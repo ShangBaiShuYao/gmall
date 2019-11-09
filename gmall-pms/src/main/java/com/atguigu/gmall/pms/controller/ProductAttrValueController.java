@@ -2,45 +2,65 @@ package com.atguigu.gmall.pms.controller;
 
 import java.util.Arrays;
 import java.util.List;
-
-
 import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.QueryCondition;
 import com.atguigu.core.bean.Resp;
+import com.atguigu.pmall.pms.vo.SpuAttributeValueVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
-import com.atguigu.gmall.pms.entity.ProductAttrValueEntity;
+import com.atguigu.pmall.pms.entity.ProductAttrValueEntity;
 import com.atguigu.gmall.pms.service.ProductAttrValueService;
 
 
 
 
-/**
- * spu属性值
- *
- * @author lixianfeng
- * @email lxf@atguigu.com
- * @date 2019-10-30 18:50:47
+
+/*
+ *  @作者  上白书妖
+ *  @Date  2019/11/8 23:22
+ *  @Email shangbaishuyao@163.com
+ *  @Description  spu属性值
  */
 @Api(tags = "spu属性值 管理")
 @RestController
 @RequestMapping("pms/productattrvalue")
-public class ProductAttrValueController {
+public class ProductAttrValueController
+{
+
     @Autowired
     private ProductAttrValueService productAttrValueService;
 
 
+    /*
+     * @Description 根据spuId查询检索属性及值
+     * @Date   2019/11/8 23:11
+     */
+  /*  public Resp<List<ProductAttrValueVO>> querySearchAttrValue(@PathVariable("{spuId}")Long spuId)
+    {
+        List<ProductAttrValueEntity> attrValueVOS = this.productAttrValueService.querySearchAttrValue(spuId);
+        return Resp.ok(attrValueVOS);
+    }*/
+
+
+
+
+
+  /*
+   * @Description
+   * @Date   2019/11/8 23:21
+   */
     @ApiOperation("根据spuId查询检索属性及值")
     @GetMapping("/{spuId}")
-    public Resp<List<ProductAttrValueEntity>> querySearchAttrValue(@PathVariable("spuId")Long spuId){
-        List<ProductAttrValueEntity> productAttrValueEntities = productAttrValueService.querySearchAttrValue(spuId);
+    public Resp<List<SpuAttributeValueVO>> querySearchAttrValue(@PathVariable("spuId")Long spuId){
+
+        List<SpuAttributeValueVO> productAttrValueEntities = productAttrValueService.querySearchAttrValue(spuId);
 
         return Resp.ok(productAttrValueEntities);
     }
+
 
 
     /**
@@ -67,6 +87,7 @@ public class ProductAttrValueController {
 
         return Resp.ok(productAttrValue);
     }
+
 
     /**
      * 保存

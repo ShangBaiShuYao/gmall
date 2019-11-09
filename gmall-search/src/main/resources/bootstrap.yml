@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: searche-service
+  cloud:
+    nacos:
+      config:
+        server-addr: 114.55.29.125:8848

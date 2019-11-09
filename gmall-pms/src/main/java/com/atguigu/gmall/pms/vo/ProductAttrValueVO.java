@@ -1,7 +1,7 @@
 package com.atguigu.gmall.pms.vo;
 
 import com.alibaba.nacos.client.utils.StringUtils;
-import com.atguigu.gmall.pms.entity.ProductAttrValueEntity;
+import com.atguigu.pmall.pms.entity.ProductAttrValueEntity;
 import org.springframework.util.CollectionUtils;
 
 import java.util.List;

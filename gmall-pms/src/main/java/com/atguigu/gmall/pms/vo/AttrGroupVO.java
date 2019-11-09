@@ -1,8 +1,8 @@
 package com.atguigu.gmall.pms.vo;
 
-import com.atguigu.gmall.pms.entity.AttrAttrgroupRelationEntity;
-import com.atguigu.gmall.pms.entity.AttrEntity;
-import com.atguigu.gmall.pms.entity.AttrGroupEntity;
+import com.atguigu.pmall.pms.entity.AttrAttrgroupRelationEntity;
+import com.atguigu.pmall.pms.entity.AttrEntity;
+import com.atguigu.pmall.pms.entity.AttrGroupEntity;
 import lombok.Data;
 
 import java.util.List;

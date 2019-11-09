@@ -2,12 +2,12 @@ package com.atguigu.gmall.pms.controller;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 
 import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.QueryCondition;
 import com.atguigu.core.bean.Resp;
+import com.atguigu.pmall.pms.entity.SpuInfoEntity;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -15,26 +15,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import com.atguigu.gmall.pms.entity.SkuInfoEntity;
+import com.atguigu.pmall.pms.entity.SkuInfoEntity;
 import com.atguigu.gmall.pms.service.SkuInfoService;
 
 
 
 
-/**
- * sku信息
- *
- * @author lixianfeng
- * @email lxf@atguigu.com
- * @date 2019-11-01 20:49:25
+
+/*
+ *  @作者  上白书妖
+ *  @Date  2019/11/9 19:24
+ *  @Email shangbaishuyao@163.com
+ *  @Description  sku信息
  */
 @Api(tags = "sku信息 管理")
 @RestController
 @RequestMapping("pms/skuinfo")
-public class SkuInfoController {
+public class SkuInfoController
+{
+
     @Autowired
     private SkuInfoService skuInfoService;
-
 
 
     /*
@@ -50,6 +51,18 @@ public class SkuInfoController {
         return Resp.ok(skuInfoEntities);
     }
 
+
+    /**
+     * 列表
+     */
+    @ApiOperation("分页查询(排序)")
+    @PostMapping("/list")
+    @PreAuthorize("hasAuthority('pms:skuinfo:list')")
+    public Resp<List<SpuInfoEntity>> querySpuPage(@RequestBody QueryCondition queryCondition) {
+        PageVo page = skuInfoService.queryPage(queryCondition);
+
+        return Resp.ok((List<SpuInfoEntity>)page.getList());
+    }
 
     /**
      * 列表

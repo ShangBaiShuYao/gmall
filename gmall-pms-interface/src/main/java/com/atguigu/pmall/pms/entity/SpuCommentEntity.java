@@ -1,4 +1,4 @@
-package com.atguigu.gmall.pms.entity;
+package com.atguigu.pmall.pms.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;

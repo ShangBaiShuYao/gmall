@@ -2,7 +2,7 @@ package com.atguigu.gmall.pms.service.impl;
 
 import com.alibaba.nacos.client.utils.StringUtils;
 import com.atguigu.gmall.pms.dao.*;
-import com.atguigu.gmall.pms.entity.*;
+import com.atguigu.pmall.pms.entity.*;
 import com.atguigu.gmall.pms.feign.GmallSmsClient;
 import com.atguigu.gmall.pms.vo.ProductAttrValueVO;
 import com.atguigu.gmall.pms.vo.SaleVO;
