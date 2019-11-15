@@ -4,4 +4,18 @@ spring:
   cloud:
     nacos:
       config:
-        server-addr: 114.55.29.125:8848
+        server-addr: 127.0.0.1:8848
+#hystrix的超时时间
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 9000
+#ribbon的超时时间
+ribbon:
+  ReadTimeout: 4000
+  ConnectTimeout: 4000

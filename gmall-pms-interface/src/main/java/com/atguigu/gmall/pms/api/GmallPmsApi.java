@@ -5,6 +5,7 @@ import com.atguigu.core.bean.QueryCondition;
 import com.atguigu.core.bean.Resp;
 import com.atguigu.pmall.pms.entity.*;
 import com.atguigu.pmall.pms.vo.SpuAttributeValueVO;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,7 +43,7 @@ public interface GmallPmsApi
      * @Date   2019/11/9 0:11
      */
     @PostMapping("pms/spuinfo/list")
-    public Resp<List<SkuInfoEntity>> querySpuPage(@RequestBody QueryCondition queryCondition);
+    public Resp<List<SpuInfoEntity>> querySpuPage(@RequestBody QueryCondition queryCondition);
 
 
 
