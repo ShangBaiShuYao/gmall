@@ -4,7 +4,7 @@
 <mapper namespace="com.atguigu.gmall.pms.dao.AttrAttrgroupRelationDao">
 
 	<!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.atguigu.pmall.pms.entity.AttrAttrgroupRelationEntity" id="attrAttrgroupRelationMap">
+    <resultMap type="com.atguigu.gmall.pms.entity.AttrAttrgroupRelationEntity" id="attrAttrgroupRelationMap">
         <result property="id" column="id"/>
         <result property="attrId" column="attr_id"/>
         <result property="attrGroupId" column="attr_group_id"/>

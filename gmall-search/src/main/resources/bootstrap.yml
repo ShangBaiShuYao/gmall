@@ -1,10 +1,13 @@
 spring:
   application:
-    name: searche-service
+    name: search-service
   cloud:
     nacos:
       config:
         server-addr: 127.0.0.1:8848
+        namespace: 488f3f0c-d11b-4ccf-93df-117e3bc1fa76
+        group: dev
+        file-extension: yml  # 默认找服务名.properties文件
 #hystrix的超时时间
 hystrix:
   command:

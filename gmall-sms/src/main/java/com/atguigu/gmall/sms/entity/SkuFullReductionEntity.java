@@ -20,6 +20,7 @@ import lombok.Data;
 @Data
 @TableName("sms_sku_full_reduction")
 public class SkuFullReductionEntity implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -48,7 +49,4 @@ public class SkuFullReductionEntity implements Serializable {
 	 */
 	@ApiModelProperty(name = "addOther",value = "是否参与其他优惠")
 	private Integer addOther;
-
-    public void setAddOther(Integer fullAddOther) {
-    }
 }

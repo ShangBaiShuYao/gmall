@@ -12,7 +12,7 @@ import com.atguigu.core.bean.Query;
 import com.atguigu.core.bean.QueryCondition;
 
 import com.atguigu.gmall.pms.dao.AttrAttrgroupRelationDao;
-import com.atguigu.pmall.pms.entity.AttrAttrgroupRelationEntity;
+import com.atguigu.gmall.pms.entity.AttrAttrgroupRelationEntity;
 import com.atguigu.gmall.pms.service.AttrAttrgroupRelationService;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -1,5 +1,6 @@
 package com.atguigu.gmall.search.vo;
 
+
 import lombok.Data;
 
 import java.io.Serializable;

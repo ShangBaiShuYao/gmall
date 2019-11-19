@@ -1,8 +1,6 @@
 package com.atguigu.gmall.ums.controller;
 
 import java.util.Arrays;
-import java.util.Map;
-
 
 import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.QueryCondition;
@@ -16,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import com.atguigu.gmall.ums.entity.MemberEntity;
 import com.atguigu.gmall.ums.service.MemberService;
 
-
+import javax.swing.*;
 
 
 /**
@@ -32,6 +30,46 @@ import com.atguigu.gmall.ums.service.MemberService;
 public class MemberController {
     @Autowired
     private MemberService memberService;
+
+
+
+    /*
+     * @Description 根据用户名和密码查询用户
+     * @Date   2019/11/18 20:01
+     */
+    @GetMapping("query")
+    public Resp<MemberEntity> queryuser(@RequestParam("username")String username,@RequestParam("password")String password)
+    {
+        MemberEntity memberEntity = this.memberService.queryuser(username,password);
+
+        return Resp.ok(memberEntity);
+    }
+
+
+    /*
+     * @Description 注册功能
+     * @Date   2019/11/18 19:22
+     */
+    @PostMapping("register")
+    public Resp<Object> register(MemberEntity memberEntity,@RequestParam("code")String code)
+    {
+        this.memberService.register(memberEntity , code);
+        return Resp.ok(null);
+    }
+
+
+
+
+    /*
+     * @Description 数据验证功能
+     * @Date   2019/11/18 13:25
+     */
+    @GetMapping("check/{data}/{type}")
+    public Resp<Boolean> checkData(@PathVariable("data")String data,@PathVariable("type")Integer type)
+    {
+        Boolean b = this.memberService.checkData(data,type);
+        return Resp.ok(b);
+    }
 
     /**
      * 列表

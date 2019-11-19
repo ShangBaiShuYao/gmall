@@ -4,7 +4,7 @@
 <mapper namespace="com.atguigu.gmall.pms.dao.SpuCommentDao">
 
 	<!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.atguigu.pmall.pms.entity.SpuCommentEntity" id="spuCommentMap">
+    <resultMap type="com.atguigu.gmall.pms.entity.SpuCommentEntity" id="spuCommentMap">
         <result property="id" column="id"/>
         <result property="skuId" column="sku_id"/>
         <result property="spuId" column="spu_id"/>

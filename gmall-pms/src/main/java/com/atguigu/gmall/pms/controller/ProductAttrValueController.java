@@ -5,13 +5,13 @@ import java.util.List;
 import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.QueryCondition;
 import com.atguigu.core.bean.Resp;
-import com.atguigu.pmall.pms.vo.SpuAttributeValueVO;
+import com.atguigu.gmall.pms.vo.SpuAttributeValueVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import com.atguigu.pmall.pms.entity.ProductAttrValueEntity;
+import com.atguigu.gmall.pms.entity.ProductAttrValueEntity;
 import com.atguigu.gmall.pms.service.ProductAttrValueService;
 
 
@@ -49,18 +49,21 @@ public class ProductAttrValueController
 
 
   /*
-   * @Description
+   * @Description 这个两表关联查询,根据spuid查询sku但是无法判断sku是是检索属性,所以我们就两表关联查询,
+   * 但是没有两表关联查询的方法,所以我们就自己写这个方法
+   * 写好的查询是否是检索属性的SQL语句已经放入XMl配置文件中了
+   *
+   * 但是这里的返回值应该返回什么呢?
+   *   返回一个List<SpuAttributeValueVO>的对象,但是不只一个微服务需要,所以 我么提取出来放入interface工程中
    * @Date   2019/11/8 23:21
    */
     @ApiOperation("根据spuId查询检索属性及值")
     @GetMapping("/{spuId}")
     public Resp<List<SpuAttributeValueVO>> querySearchAttrValue(@PathVariable("spuId")Long spuId){
 
-        List<SpuAttributeValueVO> productAttrValueEntities = productAttrValueService.querySearchAttrValue(spuId);
-
-        return Resp.ok(productAttrValueEntities);
+        List<SpuAttributeValueVO> attrValueVOS = this.productAttrValueService.querySearchAttrValue(spuId);
+        return Resp.ok(attrValueVOS);
     }
-
 
 
     /**

@@ -6,7 +6,7 @@ package com.atguigu.gmall.pms.vo;
  * @Description:
  */
 
-import com.atguigu.pmall.pms.entity.SpuInfoEntity;
+import com.atguigu.gmall.pms.entity.SpuInfoEntity;
 import lombok.Data;
 
 import java.util.List;

@@ -12,9 +12,9 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  *  @Email shangbaishuyao@163.com
  *  @Description
  */
-@EnableFeignClients
-@EnableDiscoveryClient
 @SpringBootApplication
+@EnableDiscoveryClient
+@EnableFeignClients
 public class GmallSearchApplication {
 
     public static void main(String[] args) {

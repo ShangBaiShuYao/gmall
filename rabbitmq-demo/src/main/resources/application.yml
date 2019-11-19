@@ -1,0 +1,10 @@
+spring:
+  rabbitmq:
+    host: 114.55.29.125
+    username: shangbaishuyao
+    password: shangbaishuyao
+    virtual-host: /shangbaishuyao
+  redis:
+    host: 114.55.29.125
+    password: xww19956571280
+    port: 6379

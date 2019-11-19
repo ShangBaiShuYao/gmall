@@ -9,9 +9,9 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
-@MapperScan(basePackages = "com.atguigu.gmall.sms.dao")
+@EnableDiscoveryClient
 @EnableSwagger2
-@RefreshScope
+@MapperScan(basePackages = "com.atguigu.gmall.sms.dao")
 public class GmallSmsApplication {
 
     public static void main(String[] args) {

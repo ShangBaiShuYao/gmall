@@ -9,7 +9,7 @@ import com.atguigu.core.bean.Query;
 import com.atguigu.core.bean.QueryCondition;
 
 import com.atguigu.gmall.pms.dao.SpuImagesDao;
-import com.atguigu.pmall.pms.entity.SpuImagesEntity;
+import com.atguigu.gmall.pms.entity.SpuImagesEntity;
 import com.atguigu.gmall.pms.service.SpuImagesService;
 
 

@@ -1,7 +1,7 @@
 package com.atguigu.gmall.pms.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.atguigu.pmall.pms.entity.BrandEntity;
+import com.atguigu.gmall.pms.entity.BrandEntity;
 import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.QueryCondition;
 

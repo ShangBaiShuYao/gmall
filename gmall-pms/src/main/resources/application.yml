@@ -1,0 +1,14 @@
+logging:
+  level:
+    com.atguigu: debug
+spring:
+  rabbitmq:
+    host: 114.55.29.125
+    virtual-host: /shangbaishuyao
+    username: shangbaishuyao
+    password: shangbaishuyao
+
+  redis:
+    host: 114.55.29.125
+    password: xww19956571280
+    port: 6379

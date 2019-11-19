@@ -7,13 +7,14 @@ import java.util.List;
 import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.QueryCondition;
 import com.atguigu.core.bean.Resp;
+import com.atguigu.gmall.pms.vo.CategoryVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import com.atguigu.pmall.pms.entity.CategoryEntity;
+import com.atguigu.gmall.pms.entity.CategoryEntity;
 import com.atguigu.gmall.pms.service.CategoryService;
 
 
@@ -34,8 +35,21 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
+
+    /*
+     * @Description
+     * @Date   2019/11/17 1:17
+     */
+    @GetMapping("{pid}")
+    public Resp<List<CategoryVO>> queryCategoryWithSub(@PathVariable("pid")Long pid)
+    {
+        List<CategoryVO>  categoryVOS = this.categoryService.queryCategoryWithSub(pid);
+        return Resp.ok(categoryVOS);
+    }
+
+
     /**
-     * 商品分类
+     * 商品分类  查询以及分类把里面的参数level参数写成1就是一级分类呀   parentId 根据父Id查询子分类把它设置成0不就可以了吗
      * @param level
      * @param parentCid
      * @return

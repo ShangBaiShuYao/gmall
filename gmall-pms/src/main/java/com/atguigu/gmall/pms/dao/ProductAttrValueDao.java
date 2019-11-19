@@ -1,8 +1,9 @@
 package com.atguigu.gmall.pms.dao;
 
-import com.atguigu.pmall.pms.entity.ProductAttrValueEntity;
+import com.atguigu.gmall.pms.entity.ProductAttrValueEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -14,6 +15,7 @@ import java.util.List;
  * @date 2019-10-30 18:50:47
  */
 @Mapper
+@Repository
 public interface ProductAttrValueDao extends BaseMapper<ProductAttrValueEntity> {
 
     /*

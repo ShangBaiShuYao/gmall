@@ -1,6 +1,7 @@
 package com.atguigu.gmall.pms.controller;
 
 import java.util.Arrays;
+import java.util.List;
 
 
 import com.atguigu.core.bean.PageVo;
@@ -13,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import com.atguigu.pmall.pms.entity.AttrGroupEntity;
+import com.atguigu.gmall.pms.entity.AttrGroupEntity;
 import com.atguigu.gmall.pms.service.AttrGroupService;
 
 
@@ -35,11 +36,18 @@ public class AttrGroupController {
 
 
 
-    /**
-     *  @作者  上白书妖
-     *  @Date  2019/11/3 13:43
-     *  @Email shangbaishuyao@163.com
-     *  @Description  查询分组下的规格参数
+
+    @GetMapping("withattrs/cat/{catId}")
+    public Resp<List<AttrGroupVO>> queryGroupWithAttrsByCid(@PathVariable("catId")Long catId){
+
+        List<AttrGroupVO> groupVOS = this.attrGroupService.queryGroupWithAttrsByCid(catId);
+
+        return Resp.ok(groupVOS);
+    }
+
+    /*
+     * @Description 查询分组下的规格参数
+     * @Date   2019/11/15 10:21
      */
     @ApiOperation("根据分组id查询分组及组下的规格参数")
     @GetMapping("withattr/{gid}")
@@ -48,6 +56,7 @@ public class AttrGroupController {
         AttrGroupVO attrGroupVO = this.attrGroupService.queryById(gid);
         return Resp.ok(attrGroupVO);
     }
+
 
 
 

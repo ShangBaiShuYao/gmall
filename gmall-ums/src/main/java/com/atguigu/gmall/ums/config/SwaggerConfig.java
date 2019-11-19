@@ -17,13 +17,13 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConfig
 {
 
-    @Bean("商品平台")
+    @Bean("用户平台")
     public Docket userApis() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("商品平台")
+                .groupName("用户平台")
                 .select()
                 .apis(RequestHandlerSelectors.withClassAnnotation(Api.class)) // 所有标了API注解的才在文档中展示
-                .paths(PathSelectors.regex("/pms.*")) // pms下的所有请求
+                .paths(PathSelectors.regex("/ums.*")) // ums下的所有请求
                 .build()
                 .apiInfo(apiInfo())
                 .enable(true);
@@ -31,8 +31,8 @@ public class SwaggerConfig
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("谷粒商城-商品平台接口文档")
-                .description("提供商品平台的文档")
+                .title("谷粒商城-用户平台接口文档")
+                .description("提供用户平台的文档")
                 .termsOfServiceUrl("http://www.atguigu.com/")
                 .version("1.0")
                 .build();

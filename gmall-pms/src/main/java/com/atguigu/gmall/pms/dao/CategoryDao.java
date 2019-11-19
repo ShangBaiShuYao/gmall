@@ -1,6 +1,7 @@
 package com.atguigu.gmall.pms.dao;
 
-import com.atguigu.pmall.pms.entity.CategoryEntity;
+import com.atguigu.gmall.pms.entity.CategoryEntity;
+import com.atguigu.gmall.pms.vo.CategoryVO;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
@@ -25,4 +26,11 @@ public interface CategoryDao extends BaseMapper<CategoryEntity> {
      * @return
      */
     List<CategoryEntity> selectList(QueryWrapper<Object> wrapper);
+
+    
+    /*
+     * @Description
+     * @Date   2019/11/17 1:26
+     */
+    List<CategoryVO> queryCategoryWithSub(Long pid);
 }

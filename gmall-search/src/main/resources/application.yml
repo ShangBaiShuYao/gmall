@@ -1,0 +1,25 @@
+server:
+  port: 8086
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  elasticsearch:
+    jest:
+      uris: http://114.55.29.125:9200
+  rabbitmq:
+    host: 114.55.29.125
+    virtual-host: /shangbaishuyao
+    username: shangbaishuyao
+    password: shangbaishuyao
+#server.port=8086
+#spring.cloud.nacos.discovery.server-addr=127.0.0.1:8848
+#spring.elasticsearch.jest.uris=http://114.55.29.125:9200
+#spring.rabbitmq.host=114.55.29.125
+#spring.rabbitmq.virtual-host= /shangbaishuyao
+#spring.rabbitmq.username=shangbaishuyao
+#spring.rabbitmq.password=shangbaishuyao
+#
+
+

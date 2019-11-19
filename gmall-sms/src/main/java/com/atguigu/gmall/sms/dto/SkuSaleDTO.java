@@ -1,6 +1,5 @@
 package com.atguigu.gmall.sms.dto;
 
-import com.atguigu.gmall.sms.vo.SaleVO;
 import lombok.Data;
 
 import java.math.BigDecimal;

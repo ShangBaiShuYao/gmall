@@ -9,7 +9,7 @@ import com.atguigu.core.bean.Query;
 import com.atguigu.core.bean.QueryCondition;
 
 import com.atguigu.gmall.pms.dao.SpuCommentDao;
-import com.atguigu.pmall.pms.entity.SpuCommentEntity;
+import com.atguigu.gmall.pms.entity.SpuCommentEntity;
 import com.atguigu.gmall.pms.service.SpuCommentService;
 
 

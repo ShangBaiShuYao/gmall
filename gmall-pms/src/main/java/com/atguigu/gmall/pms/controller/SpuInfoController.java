@@ -16,7 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import com.atguigu.pmall.pms.entity.SpuInfoEntity;
+import com.atguigu.gmall.pms.entity.SpuInfoEntity;
 import com.atguigu.gmall.pms.service.SpuInfoService;
 
 
@@ -63,9 +63,9 @@ public class SpuInfoController {
     }
 
 
-    /**
+   /* *//**
      * 列表
-     */
+     *//*
     @ApiOperation("分页查询(排序)")
     @PostMapping("/list")
     @PreAuthorize("hasAuthority('pms:spuinfo:list')")
@@ -73,11 +73,32 @@ public class SpuInfoController {
         PageVo page = spuInfoService.queryPage(queryCondition);
 
         return Resp.ok(page);
-    }
+    }*/
+
+
 
 
 
     /**
+     * 列表
+     */
+    @ApiOperation("分页查询(排序)")
+    @PostMapping("/list")
+    @PreAuthorize("hasAuthority('pms:spuinfo:list')")
+    public Resp<List<SpuInfoEntity>> querySpuPage(@RequestBody QueryCondition queryCondition) {
+        PageVo page = spuInfoService.queryPage(queryCondition);
+
+        return Resp.ok((List<SpuInfoEntity>)page.getList());
+    }
+
+
+    /*
+     * @Description 因为要把数据导入到es中,但是呢,不能通过mysql直接导入呀,所以只能远程调用pms ,sms ,等微服务的相关接口
+     * 去批量导入,因为一次性导入数据太过庞大,所以我们得像分页一般每一次导入一百条数据等
+     * 刚好这儿有分页查询的工能,既然有了就不用去写了,将来我们只要把他放入feign中远程调用即可
+     * 任何一个controller里面都有分页查询的功能,所以不用写了,直接远程调用即可
+     * @Date   2019/11/15 19:05
+     *
      * 列表
      */
     @ApiOperation("分页查询(排序)")

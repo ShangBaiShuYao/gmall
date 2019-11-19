@@ -1,4 +1,4 @@
-package com.atguigu.pmall.pms.entity;
+package com.atguigu.gmall.pms.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 import java.io.Serializable;
+import java.util.List;
 
 import lombok.Data;
 
@@ -84,5 +85,6 @@ public class SkuInfoEntity implements Serializable {
 	 */
 	@ApiModelProperty(name = "weight",value = "重量")
 	private BigDecimal weight;
+
 
 }

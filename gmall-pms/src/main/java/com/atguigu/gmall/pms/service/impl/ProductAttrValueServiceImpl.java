@@ -1,6 +1,6 @@
 package com.atguigu.gmall.pms.service.impl;
 
-import com.atguigu.pmall.pms.vo.SpuAttributeValueVO;
+import com.atguigu.gmall.pms.vo.SpuAttributeValueVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +15,7 @@ import com.atguigu.core.bean.Query;
 import com.atguigu.core.bean.QueryCondition;
 
 import com.atguigu.gmall.pms.dao.ProductAttrValueDao;
-import com.atguigu.pmall.pms.entity.ProductAttrValueEntity;
+import com.atguigu.gmall.pms.entity.ProductAttrValueEntity;
 import com.atguigu.gmall.pms.service.ProductAttrValueService;
 
 
@@ -27,6 +27,7 @@ public class ProductAttrValueServiceImpl extends ServiceImpl<ProductAttrValueDao
 
     /*
      * @Description   根据spuId查询检索属性及值
+     * 这是两表关联查询是否是检索属性的
      * @Date   2019/11/7 16:54
      */
     @Override
@@ -34,7 +35,11 @@ public class ProductAttrValueServiceImpl extends ServiceImpl<ProductAttrValueDao
 
         List<ProductAttrValueEntity> productAttrValueEntities = this.productAttrValueDao.querySearchAttrValue(spuId);
 
-        return productAttrValueEntities.stream().map(productAttrValueEntity -> {
+        /*
+         * @Description 使用stream表达式将将一个集合转换为另外一个集合
+         * @Date   2019/11/14 20:34
+         */
+                return productAttrValueEntities.stream().map(productAttrValueEntity -> {
             SpuAttributeValueVO spuAttributeValueVO = new SpuAttributeValueVO();
             spuAttributeValueVO.setProductAttributeId(productAttrValueEntity.getAttrId());
             spuAttributeValueVO.setName(productAttrValueEntity.getAttrName());

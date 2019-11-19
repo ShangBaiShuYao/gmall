@@ -1,9 +1,21 @@
 package com.atguigu.gmall.pms.vo;
 
+import com.atguigu.gmall.pms.entity.ProductAttrValueEntity;
+import lombok.Data;
+
+import java.util.List;
+
+
 /**
- * @Auther: 上白书妖
- * @Date: 2019/11/14 23:51
- * @Description:
- */
+ *  @作者  上白书妖
+ *  @Date  2019/11/14 0:04
+ *  @Email shangbaishuyao@163.com
+ *  @Description 
+ */ 
+@Data
 public class GroupVO {
+
+    private String groupName;
+
+    private List<ProductAttrValueEntity> baseAttrValues;
 }

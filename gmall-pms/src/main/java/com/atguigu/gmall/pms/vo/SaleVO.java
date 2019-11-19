@@ -4,13 +4,15 @@ import lombok.Data;
 import java.math.BigDecimal;
 import java.util.List;
 
-/**
+/*
  * @Auther: 上白书妖
  * @Date: 2019/11/5 00:16
  * @Description:
  */
 @Data
-public class SaleVO {
+public class SaleVO  {
+
+    public SaleVO(){}
 
     public Long skuId;
 

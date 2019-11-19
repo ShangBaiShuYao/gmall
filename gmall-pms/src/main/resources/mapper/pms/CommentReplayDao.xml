@@ -4,7 +4,7 @@
 <mapper namespace="com.atguigu.gmall.pms.dao.CommentReplayDao">
 
 	<!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.atguigu.pmall.pms.entity.CommentReplayEntity" id="commentReplayMap">
+    <resultMap type="com.atguigu.gmall.pms.entity.CommentReplayEntity" id="commentReplayMap">
         <result property="id" column="id"/>
         <result property="commentId" column="comment_id"/>
         <result property="replyId" column="reply_id"/>

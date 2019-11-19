@@ -9,7 +9,7 @@ import com.atguigu.core.bean.Query;
 import com.atguigu.core.bean.QueryCondition;
 
 import com.atguigu.gmall.pms.dao.BrandDao;
-import com.atguigu.pmall.pms.entity.BrandEntity;
+import com.atguigu.gmall.pms.entity.BrandEntity;
 import com.atguigu.gmall.pms.service.BrandService;
 
 

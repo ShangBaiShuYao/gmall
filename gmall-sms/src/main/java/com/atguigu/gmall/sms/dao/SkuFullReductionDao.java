@@ -15,5 +15,5 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface SkuFullReductionDao extends BaseMapper<SkuFullReductionEntity> {
 
-    void insert(SkuLadderEntity skuLadderEntity);
+
 }

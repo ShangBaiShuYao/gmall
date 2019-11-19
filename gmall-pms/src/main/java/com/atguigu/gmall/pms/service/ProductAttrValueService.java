@@ -1,8 +1,8 @@
 package com.atguigu.gmall.pms.service;
 
-import com.atguigu.pmall.pms.vo.SpuAttributeValueVO;
+import com.atguigu.gmall.pms.vo.SpuAttributeValueVO;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.atguigu.pmall.pms.entity.ProductAttrValueEntity;
+import com.atguigu.gmall.pms.entity.ProductAttrValueEntity;
 import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.QueryCondition;
 

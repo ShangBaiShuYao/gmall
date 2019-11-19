@@ -4,7 +4,7 @@
 <mapper namespace="com.atguigu.gmall.pms.dao.SpuInfoDao">
 
 	<!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.atguigu.pmall.pms.entity.SpuInfoEntity" id="spuInfoMap">
+    <resultMap type="com.atguigu.gmall.pms.entity.SpuInfoEntity" id="spuInfoMap">
         <result property="id" column="id"/>
         <result property="spuName" column="spu_name"/>
         <result property="spuDescription" column="spu_description"/>

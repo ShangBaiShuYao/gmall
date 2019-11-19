@@ -8,3 +8,7 @@ spring:
         namespace: 801f1108-6a16-4564-ab8f-963b55deaf9e
         group: dev
         file-extension: yml  # 默认找服务名.properties文件
+  redis:
+    host: 114.55.29.125
+    password: xww19956571280
+    port: 6379

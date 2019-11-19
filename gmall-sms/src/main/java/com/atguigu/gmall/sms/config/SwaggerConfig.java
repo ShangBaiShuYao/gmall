@@ -23,7 +23,7 @@ public class SwaggerConfig
                 .groupName("营销平台")
                 .select()
                 .apis(RequestHandlerSelectors.withClassAnnotation(Api.class)) // 所有标了API注解的才在文档中展示
-                .paths(PathSelectors.regex("/pms.*")) // pms下的所有请求
+                .paths(PathSelectors.regex("/sms.*")) // pms下的所有请求
                 .build()
                 .apiInfo(apiInfo())
                 .enable(true);

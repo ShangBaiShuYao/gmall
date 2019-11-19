@@ -4,7 +4,7 @@
 <mapper namespace="com.atguigu.gmall.pms.dao.BrandDao">
 
 	<!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.atguigu.pmall.pms.entity.BrandEntity" id="brandMap">
+    <resultMap type="com.atguigu.gmall.pms.entity.BrandEntity" id="brandMap">
         <result property="brandId" column="brand_id"/>
         <result property="name" column="name"/>
         <result property="logo" column="logo"/>

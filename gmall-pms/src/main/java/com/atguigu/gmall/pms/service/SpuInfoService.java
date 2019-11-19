@@ -2,7 +2,7 @@ package com.atguigu.gmall.pms.service;
 
 import com.atguigu.gmall.pms.vo.SpuInfoVO;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.atguigu.pmall.pms.entity.SpuInfoEntity;
+import com.atguigu.gmall.pms.entity.SpuInfoEntity;
 import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.QueryCondition;
 
@@ -30,5 +30,9 @@ public interface SpuInfoService extends IService<SpuInfoEntity> {
      * @Date   2019/11/5 20:13
      */
     void bigSave(SpuInfoVO spuInfoVO);
+
+
+    PageVo querySpuInfoByKeyPage(Long catId, QueryCondition condition);
+
 }
 

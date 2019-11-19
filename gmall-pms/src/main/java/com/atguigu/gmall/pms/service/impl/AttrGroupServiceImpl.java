@@ -2,8 +2,8 @@ package com.atguigu.gmall.pms.service.impl;
 
 import com.atguigu.gmall.pms.dao.AttrAttrgroupRelationDao;
 import com.atguigu.gmall.pms.dao.AttrDao;
-import com.atguigu.pmall.pms.entity.AttrAttrgroupRelationEntity;
-import com.atguigu.pmall.pms.entity.AttrEntity;
+import com.atguigu.gmall.pms.entity.AttrAttrgroupRelationEntity;
+import com.atguigu.gmall.pms.entity.AttrEntity;
 import com.atguigu.gmall.pms.vo.AttrGroupVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ import com.atguigu.core.bean.Query;
 import com.atguigu.core.bean.QueryCondition;
 
 import com.atguigu.gmall.pms.dao.AttrGroupDao;
-import com.atguigu.pmall.pms.entity.AttrGroupEntity;
+import com.atguigu.gmall.pms.entity.AttrGroupEntity;
 import com.atguigu.gmall.pms.service.AttrGroupService;
 import org.springframework.util.CollectionUtils;
 
@@ -104,4 +104,45 @@ public class AttrGroupServiceImpl extends ServiceImpl<AttrGroupDao, AttrGroupEnt
         return new PageVo(page);
     }
 
+    @Override
+    public List<AttrGroupVO> queryGroupWithAttrsByCid(Long catId) {
+
+        // 根据分类查询分类下的所有组
+        List<AttrGroupEntity> groupEntities = this.list(new QueryWrapper<AttrGroupEntity>().eq("catelog_id", catId));
+
+        // 查询每个组下的所有规格参数
+        return groupEntities.stream().map(attrGroupEntity -> this.queryGroupWithAttrs(attrGroupEntity.getAttrGroupId())).collect(Collectors.toList());
+    }
+        public AttrGroupVO queryGroupWithAttrs(Long gid) {
+
+            AttrGroupVO groupVO = new AttrGroupVO();
+
+            // 先查询分组
+            AttrGroupEntity groupEntity = this.getById(gid);
+            BeanUtils.copyProperties(groupEntity, groupVO);
+
+            // 根据分组id查询关联关系
+            List<AttrAttrgroupRelationEntity> relationEntities = this.relationDao.selectList(new QueryWrapper<AttrAttrgroupRelationEntity>().eq("attr_group_id", gid));
+            if (CollectionUtils.isEmpty(relationEntities)){
+                return groupVO;
+            }
+        groupVO.setRelations(relationEntities);
+
+        // 根据关联关系的attrId查询属性
+        List<Long> attrIds = relationEntities.stream().map(relation -> relation.getAttrId()).collect(Collectors.toList());
+        List<AttrEntity> attrEntities = this.attrDao.selectBatchIds(attrIds);
+        groupVO.setAttrEntities(attrEntities);
+
+        return groupVO;
+    }
+
+ /*   @Override
+    public List<AttrGroupVO> queryGroupWithAttrsByCid(Long catId) {
+
+        // 根据分类查询分类下的所有组
+        List<AttrGroupEntity> groupEntities = this.list(new QueryWrapper<AttrGroupEntity>().eq("catelog_id", catId));
+
+        // 查询每个组下的所有规格参数
+        return groupEntities.stream().map(attrGroupEntity -> this.queryGroupWithAttrs(attrGroupEntity.getAttrGroupId())).collect(Collectors.toList());
+    }*/
 }

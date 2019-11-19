@@ -1,6 +1,7 @@
 package com.atguigu.gmall.pms.controller;
 
 import java.util.Arrays;
+import java.util.List;
 
 
 import com.atguigu.core.bean.PageVo;
@@ -12,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import com.atguigu.pmall.pms.entity.SkuSaleAttrValueEntity;
+import com.atguigu.gmall.pms.entity.SkuSaleAttrValueEntity;
 import com.atguigu.gmall.pms.service.SkuSaleAttrValueService;
 
 
@@ -31,6 +32,26 @@ import com.atguigu.gmall.pms.service.SkuSaleAttrValueService;
 public class SkuSaleAttrValueController {
     @Autowired
     private SkuSaleAttrValueService skuSaleAttrValueService;
+
+
+    /*
+     * @Description  根据spuId查询销售属性
+     * @Date   2019/11/18 0:18
+     */
+    @ApiOperation("查询spu的所有销售属性")
+    @GetMapping("/{spuId}")
+    public Resp<List<SkuSaleAttrValueEntity>> querySkuSaleAttrValueBySpuId(@PathVariable("spuId")Long spuId) {
+
+        List<SkuSaleAttrValueEntity> skuSaleAttrValueEntities = this.skuSaleAttrValueService.querySkuSaleAttrValueBySpuId(spuId);
+
+        return Resp.ok(skuSaleAttrValueEntities);
+    }
+
+
+
+
+
+
 
     /**
      * 列表

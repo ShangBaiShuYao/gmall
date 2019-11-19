@@ -70,12 +70,18 @@ public class SkuBoundsServiceImpl extends ServiceImpl<SkuBoundsDao, SkuBoundsEnt
         this.save(skuBoundsEntity);
 
         // 3.2. 新增打折信息：skuLadder
+//        SkuLadderEntity skuLadderEntity = new SkuLadderEntity();
+//        skuLadderEntity.setFullCount(saleVO.getFullCount());
+//        skuLadderEntity.setDiscount(saleVO.getDiscount());
+//        skuLadderEntity.setAddOther(saleVO.getLadderAddOther());
+//        skuLadderEntity.setSkuId(saleVO.getSkuId());
+//        this.skuFullReductionDao.insert(skuLadderEntity);
         SkuLadderEntity skuLadderEntity = new SkuLadderEntity();
         skuLadderEntity.setFullCount(saleVO.getFullCount());
         skuLadderEntity.setDiscount(saleVO.getDiscount());
         skuLadderEntity.setAddOther(saleVO.getLadderAddOther());
         skuLadderEntity.setSkuId(saleVO.getSkuId());
-        this.skuFullReductionDao.insert(skuLadderEntity);
+        this.skuLadderDao.insert(skuLadderEntity);
 
         // 3.3. 新增满减信息：skuReduction
         SkuFullReductionEntity reductionEntity = new SkuFullReductionEntity();

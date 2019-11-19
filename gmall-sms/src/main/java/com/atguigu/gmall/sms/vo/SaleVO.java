@@ -16,7 +16,6 @@ public class SaleVO {
 
     public Long skuId;
 
-
     // 购物积分相关字段
     private BigDecimal growBounds;
     /**
